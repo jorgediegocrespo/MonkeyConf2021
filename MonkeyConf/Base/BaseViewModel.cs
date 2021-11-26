@@ -11,7 +11,14 @@ namespace MonkeyConf.Base
 
         public BaseViewModel()
         {
+            disposables = disposables ?? new CompositeDisposable();
             CreateCommands();
+        }
+
+        ~BaseViewModel()
+        {
+            disposables?.Dispose();
+            disposables = null;
         }
 
         public virtual Task OnAppearingAsync()
@@ -29,17 +36,17 @@ namespace MonkeyConf.Base
             return Task.CompletedTask;
         }
 
+        public virtual void LogError(Exception ex)
+        {
+            Console.WriteLine(ex?.Message);
+        }
+
         protected virtual void ObserveChanges()
         {
         }
 
         protected virtual void CreateCommands()
         {
-        }
-
-        protected virtual void LogError(Exception ex)
-        {
-            Console.WriteLine(ex?.Message);
         }
     }
 }

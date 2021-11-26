@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Controls;
 using MonkeyConf.Features.Bindings;
+using MonkeyConf.Features.Commands;
 using MonkeyConf.Features.DynamicData;
 using MonkeyConf.Features.ObservingChanges;
 using System;
@@ -15,14 +16,14 @@ namespace MonkeyConf
 
 		private async void BindingsClicked(object sender, EventArgs e)
 		{
-			var view = new ObservingChangesView() { ViewModel = new ObservingChangesViewModel() };
+			var view = new BindingsView() { ViewModel = new BindingsViewModel() };
 			NavigationPage.SetHasNavigationBar(view, false);
 			await Navigation.PushAsync(view);
 		}
 
 		private async void CommandsClicked(object sender, EventArgs e)
 		{
-			var view = new BindingsView() { ViewModel = new BindingsViewModel() };
+			var view = new CommandsView() { ViewModel = new CommandsViewModel() };
 			NavigationPage.SetHasNavigationBar(view, false);
 			await Navigation.PushAsync(view);
 		}

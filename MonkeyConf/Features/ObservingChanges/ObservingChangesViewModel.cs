@@ -80,11 +80,11 @@ namespace MonkeyConf.Features.ObservingChanges
                 x => x.DiscountPercentage,
                 x => x.DiscountValue)
                 .Throttle(TimeSpan.FromMilliseconds(500))
-                .Subscribe(x => Device.InvokeOnMainThreadAsync(() => CalculateTotal()), LogError));
+                .Subscribe(x => Device.BeginInvokeOnMainThread(() => CalculateTotal()), LogError));
 
             disposables.Add(this.WhenAnyValue(x => x.ProductName)
                 .Throttle(TimeSpan.FromMilliseconds(500))
-                .Subscribe(x => Device.InvokeOnMainThreadAsync(() => ResetValues()), LogError));
+                .Subscribe(x => Device.BeginInvokeOnMainThread(() => ResetValues()), LogError));
         }
 
         private void CalculateTotal()
