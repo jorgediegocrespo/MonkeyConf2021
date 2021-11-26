@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:base="clr-namespace:MonkeyConf.Base"                      
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:features="clr-namespace:MonkeyConf.Features.ObservingChanges"
+                      x:TypeArguments="features:ObservingChangesViewModel"
+                      x:Class="MonkeyConf.Features.ObservingChanges.ObservingChangesView">
+
+    <base:BaseContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+            <Setter Property="HorizontalOptions" Value="End" />
+            <Setter Property="VerticalOptions" Value="Center" />
+        </Style>
+    </base:BaseContentPage.Resources>
+    
+    <base:BaseContentPage.Content>
+        <Grid RowDefinitions="40,40,40,40,40,40,60,*" ColumnDefinitions="Auto,*" ColumnSpacing="10" Padding="50">
+            <Label GridLayout.Row="0" GridLayout.Column="0" Text="Product" />
+            <Entry x:Name="enProduct" GridLayout.Row="0" GridLayout.Column="1" />
+
+            <Label GridLayout.Row="1" GridLayout.Column="0" Text="Units" />
+            <Entry x:Name="enUnits" GridLayout.Row="1" GridLayout.Column="1" Keyboard="Numeric" />
+
+            <Label GridLayout.Row="2" GridLayout.Column="0" Text="Price" />
+            <Entry x:Name="enPrice" GridLayout.Row="2" GridLayout.Column="1" Keyboard="Numeric" />
+
+            <Label GridLayout.Row="3" GridLayout.Column="0" Text="Taxes" />
+            <Entry x:Name="enTaxes" GridLayout.Row="3" GridLayout.Column="1" Keyboard="Numeric" />
+
+            <Label GridLayout.Row="4" GridLayout.Column="0" Text="Discount %" />
+            <Entry x:Name="enDiscountPercentage" GridLayout.Row="4" GridLayout.Column="1" Keyboard="Numeric" />
+
+            <Label GridLayout.Row="5" GridLayout.Column="0" Text="Discount" />
+            <Entry x:Name="enDiscountValue" GridLayout.Row="5" GridLayout.Column="1" Keyboard="Numeric" />
+
+            <Label GridLayout.Row="6" GridLayout.Column="0" Text="TOTAL" FontAttributes="Bold"/>
+            <Entry x:Name="enTotal" GridLayout.Row="6" GridLayout.Column="1" IsReadOnly="True" TextColor="Red"/>
+        </Grid>
+    </base:BaseContentPage.Content>
+
+</base:BaseContentPage>

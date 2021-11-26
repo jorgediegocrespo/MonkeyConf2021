@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<base:BaseContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                      xmlns:base="clr-namespace:MonkeyConf.Base"                      
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:features="clr-namespace:MonkeyConf.Features.Bindings"
+                      x:TypeArguments="features:BindingsViewModel"
+                      x:Class="MonkeyConf.Features.Bindings.BindingsView">
+
+    <base:BaseContentPage.Content>
+        <StackLayout Padding="50" HorizontalOptions="FillAndExpand">
+            <Slider x:Name="slExample" 
+                    MaximumTrackColor="Blue" MinimumTrackColor="Blue"
+                    Minimum="0" Maximum="100" />
+            
+            <Label x:Name="lbValue" 
+                   HorizontalOptions="Center"/>
+
+            <Grid HeightRequest="200" HorizontalOptions="Center" Margin="20">
+                <Image x:Name="imgSad" Source="sad.png" HorizontalOptions="Center"/>
+                <Image x:Name="imgNeutral" Source="neutral.png" HorizontalOptions="Center"/>
+                <Image x:Name="imgHappy" Source="happy.png" HorizontalOptions="Center"/>
+            </Grid>
+            
+        </StackLayout>
+    </base:BaseContentPage.Content>
+
+</base:BaseContentPage>

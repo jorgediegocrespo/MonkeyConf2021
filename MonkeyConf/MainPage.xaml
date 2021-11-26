@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MonkeyConf.MainPage">
+
+    <ScrollView>
+        
+        <StackLayout Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+
+            <Button Text="Bindings" 
+                    Clicked="BindingsClicked"
+                    HorizontalOptions="Center" />
+
+            <Button Text="Commands" 
+                    Clicked="CommandsClicked"
+                    HorizontalOptions="Center" />
+            
+            <Button Text="ObservingChanges" 
+                    Clicked="ObservingChangesClicked"
+                    HorizontalOptions="Center" />
+
+            <Button Text="Dynamic data" 
+                    Clicked="DynamicDataClicked"
+                    HorizontalOptions="Center" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
