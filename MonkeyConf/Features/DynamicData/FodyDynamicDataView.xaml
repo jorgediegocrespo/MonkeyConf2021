@@ -3,8 +3,8 @@
                       xmlns:base="clr-namespace:MonkeyConf.Base"                      
                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                       xmlns:features="clr-namespace:MonkeyConf.Features.DynamicData"
-                      x:TypeArguments="features:DynamicDataViewModel"
-                      x:Class="MonkeyConf.Features.DynamicData.DynamicDataView">
+                      x:TypeArguments="features:FodyDynamicDataViewModel"
+                      x:Class="MonkeyConf.Features.DynamicData.FodyDynamicDataView">
 
     <base:BaseContentPage.Content>
         

@@ -41,5 +41,12 @@ namespace MonkeyConf
 			NavigationPage.SetHasNavigationBar(view, false);
 			await Navigation.PushAsync(view);
 		}
+
+		private async void FodyDynamicDataClicked(object sender, EventArgs e)
+		{
+			var view = new FodyDynamicDataView() { ViewModel = new FodyDynamicDataViewModel() };
+			NavigationPage.SetHasNavigationBar(view, false);
+			await Navigation.PushAsync(view);
+		}
 	}
 }

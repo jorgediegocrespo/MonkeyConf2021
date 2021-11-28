@@ -22,6 +22,11 @@
                     Clicked="DynamicDataClicked"
                     HorizontalOptions="Center" />
 
+
+            <Button Text="Fody Dynamic data" 
+                    Clicked="FodyDynamicDataClicked"
+                    HorizontalOptions="Center" />
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
