@@ -7,10 +7,13 @@
                       x:Class="MonkeyConf.Features.Commands.CommandsView">
 
     <base:BaseContentPage.Content>
-        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-            <Button x:Name="btSlow" Text="Slow" />
-            <Button x:Name="btQuick" Text="Quick" />
+        <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10">
+            <Button x:Name="btError" Text="Error" />
+            <Entry x:Name="enValue" />
+            <Button x:Name="btCalculate" Text="Calculate" />
+            <Label x:Name="lbResult" />
             <ActivityIndicator x:Name="aiBusy" IsVisible="True" IsRunning="True"/>
+            <Label x:Name="lbStatus" WidthRequest="250" HorizontalTextAlignment="Center" />
         </StackLayout>
     </base:BaseContentPage.Content>
 

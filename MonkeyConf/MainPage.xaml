@@ -4,7 +4,7 @@
 
     <ScrollView>
         
-        <StackLayout Padding="{OnPlatform iOS='30,60,30,30', Default='30'}">
+        <StackLayout Padding="50" Spacing="10">
 
             <Button Text="Bindings" 
                     Clicked="BindingsClicked"

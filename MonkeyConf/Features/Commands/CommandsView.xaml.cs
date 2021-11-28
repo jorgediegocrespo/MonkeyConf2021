@@ -18,20 +18,37 @@ namespace MonkeyConf.Features.Commands
         {
             base.CreateBindings(disposables);
 
-            disposables.Add(this.OneWayBind(ViewModel, vm => vm.DoSomethingQuickCommand, v => v.btQuick.Command));
-            disposables.Add(this.OneWayBind(ViewModel, vm => vm.DoSomethingSlowlyCommand, v => v.btSlow.Command));
+            IObservable<int> param = this.WhenAnyValue(x => x.ViewModel.OpValue);
+
+            disposables.Add(this.Bind(ViewModel, vm => vm.OpValue, v => v.enValue.Text));
+            disposables.Add(this.OneWayBind(ViewModel, vm => vm.Result, v => v.lbResult.Text));
+            disposables.Add(this.BindCommand(ViewModel, vm => vm.GenerateErrorCommand, v => v.btError));
+            disposables.Add(this.BindCommand(ViewModel, vm => vm.CalculateCommand, v => v.btCalculate, param));
         }
 
 		protected override void ObserveValues(CompositeDisposable disposables)
 		{
 			base.ObserveValues(disposables);
 
-            disposables.Add(this.WhenAnyValue(x => x.ViewModel.IsDoingSomethingQuick, x => x.ViewModel.IsDoingSomethingSlow)
+            disposables.Add(this.WhenAnyValue(
+                x => x.ViewModel.IsGeneratingError, 
+                x => x.ViewModel.IsCalculating)
                 .Subscribe(x => Device.BeginInvokeOnMainThread(() =>
                 {
                     bool isBusy = x.Item1 || x.Item2;
                     aiBusy.IsVisible = isBusy;
                     aiBusy.IsRunning = isBusy;
+                    lbStatus.IsVisible = isBusy;
+                }), ViewModel.LogError));
+
+
+            disposables.Add(this.WhenAnyValue(
+                x => x.ViewModel.IsAdding, 
+                x => x.ViewModel.IsMultipliying)
+                .Select(x => new { isAdding = x.Item1, isMultipliying = x.Item2 })
+                .Subscribe(x => Device.BeginInvokeOnMainThread(() =>
+                {
+                    lbStatus.Text = x.isAdding ? "Adding" : x.isMultipliying ? "Multipliying" : String.Empty;
                 }), ViewModel.LogError));
         }
 	}
